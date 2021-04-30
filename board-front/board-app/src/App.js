@@ -1,9 +1,12 @@
-import './App.css';
+import React, { Component } from 'react';
+import AppRouter from './component/route/RouterComponent';
 
-function App() {
-  return (
-    <h1>hello world</h1>
-    );
+class App extends Component {
+  render() {
+    return (
+      <AppRouter/>
+    )
+  }
+
 }
-
 export default App;

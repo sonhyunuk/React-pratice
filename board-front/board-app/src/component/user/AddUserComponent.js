@@ -28,7 +28,7 @@ class AddUserComponent extends Component {
     };
 
     saveUser = (e) => {
-        e.prevantDefalut();
+        e.preventDefault();
 
         let user = {
             username: this.state.username,

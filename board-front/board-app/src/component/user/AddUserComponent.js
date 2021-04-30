@@ -10,7 +10,7 @@ class AddUserComponent extends Component {
     constructor(props) {
         super(props);
 
-        this.setState({
+        this.state ={
             username: '',
             password: '',
             firstName: '',
@@ -18,7 +18,7 @@ class AddUserComponent extends Component {
             age: '',
             salary: '',
             message: null
-        })
+        }
     }
 
     onChange = (e) => {

@@ -5,8 +5,7 @@ import EditUserComponent from '../user/EditUserComponent';
 import UserListComponent from '../user/UserListComponent';
 
 const style = {
-    color: 'red',
-    margin: '10px'
+    marginTop : '20px'
 };
 const AppRouter = () => {
     return (

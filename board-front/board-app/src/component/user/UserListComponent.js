@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import APiService from '../../APiService';
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import CreateIcon from '@material-ui/icons/Create';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 class UserListComponent extends Component {
     constructor(props) {
         super(props);
@@ -57,40 +67,43 @@ class UserListComponent extends Component {
         const { users, message } = this.state;
         return (
             <div>
-                <h2>유저 리스트</h2>
-                <button onClick={addUser}> 유저 생성</button>
-
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>아이디</th>
-                            <th>성</th>
-                            <th>이름</th>
-                            <th>직급</th>
-                            <th>나이</th>
-                            <th>연봉</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <Typography variant="h4" style={style}>유저리스트</Typography>
+                <Button variant="contained" color="primary" onClick={addUser}> 유저 생성</Button>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>아이디</TableCell>
+                            <TableCell>성</TableCell>
+                            <TableCell>이름</TableCell>
+                            <TableCell>직급</TableCell>
+                            <TableCell>나이</TableCell>
+                            <TableCell>연봉</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {users.map((user) =>
-                            <tr key={user.id}>
-                                <td>{user.firstName}</td>
-                                <td>{user.lastName}</td>
-                                <td>{user.userName}</td>
-                                <td>{user.age}</td>
-                                <td>{user.salary}</td>
-                                <td>
+                            <TableRow key={user.id}>
+                                <TableCell>{user.firstName}</TableCell>
+                                <TableCell>{user.lastName}</TableCell>
+                                <TableCell>{user.userName}</TableCell>
+                                <TableCell>{user.age}</TableCell>
+                                <TableCell>{user.salary}</TableCell>
+                                <TableCell>
                                     <button onClick={() => editUser(user.id)}>수정</button>
                                     <button onClick={() => deleteUser(user.id)}>삭제</button>
 
-                                </td>
-                            </tr>
+                                </TableCell>
+                            </TableRow>
                         )}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
             </div>
         )
     }
-
+    
+}
+const style = {
+    display : 'flex',
+    justifyContent: 'center'
 }
 export default UserListComponent;

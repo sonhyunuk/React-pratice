@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import APiService from '../../APiService';
 
+import TestField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
+
 class AddUserComponent extends Component {
     constructor(props) {
         super(props);
@@ -48,47 +53,36 @@ class AddUserComponent extends Component {
     }
 
     render() {
-        const {saveUser, onChange} = this;
+        const { saveUser, onChange } = this;
         const { username, password, firstName, lastName, age, salary, message } = this.state;
         return (
             <div>
-                <h2>Add User</h2>
-                <form>
-                    <div>
-                        <label>유저 이름 :</label>
-                        <input type="text" placeholder="input your name" name="username"
-                            value={username} onChange={onChange} />
-                    </div>
-                    <div>
-                        <label>비밀 번호 :</label>
-                        <input type="password" placeholder="input your password" name="password"
-                            value={password} onChange={onChange} />
-                    </div>
-                    <div>
-                        <label>성 :</label>
-                        <input type="text" placeholder="input your first name" name="firstName"
-                            value={firstName} onChange={onChange} />
-                    </div>
-                    <div>
-                        <label> 이름 :</label>
-                        <input type="text" placeholder="input your last name" name="lastName"
-                            value={lastName} onChange={onChange} />
-                    </div>
-                    <div>
-                        <label>나이 :</label>
-                        <input type="number" placeholder="input your age" name="age"
-                            value={age} onChange={onChange} />
-                    </div>
-                    <div>
-                        <label>연봉 :</label>
-                        <input type="number" placeholder="input your salary" name="salary"
-                            value={salary} onChange={onChange} />
-                    </div>
-                    <button onClick={saveUser}>저장</button>
+                <Typography variant="h4" style={style}>Add User</Typography>
+                <form style={formContainer}>
+                    <TestField type="text" placeholder="input your name" name="username"
+                        fullWidth margin="normal" value={username} onChange={onChange} />
+                    <TestField type="password" placeholder="input your password" name="password"
+                        fullWidth margin="normal" value={password} onChange={onChange} />
+                    <TestField type="text" placeholder="input your first name" name="firstName"
+                        fullWidth margin="normal" value={firstName} onChange={onChange} />
+                    <TestField type="text" placeholder="input your last name" name="lastName"
+                        fullWidth margin="normal" value={lastName} onChange={onChange} />
+                    <TestField type="number" placeholder="input your age" name="age"
+                        fullWidth margin="normal" value={age} onChange={onChange} />
+                    <TestField type="number" placeholder="input your salary" name="salary"
+                        fullWidth margin="normal" value={salary} onChange={onChange} />
+                    <Button variant="contained" color="primary" onClick={saveUser}>저장</Button>
                 </form>
             </div>
         )
     }
 }
-
+const formContainer = {
+    display: 'flex',
+    fiexFlow: 'row wrap'
+}
+const style = {
+    dispay: 'flex',
+    justifyContent: 'center'
+}
 export default AddUserComponent;
